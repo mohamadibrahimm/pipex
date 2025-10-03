@@ -30,9 +30,9 @@ void	child1(int pipefd[2], t_pipex *pipex, char **envp, int fd)
 	dup2(pipefd[1], 1);
 	if (fd >= 0)
 		dup2(fd, 0);
+	close_fds(pipefd);
 	execute(pipex, envp, pipex->cmd1);
 	free_all(pipex);
-	close_fds(pipefd);
 	free(pipex);
 	exit(127);
 }
@@ -74,9 +74,9 @@ int	main(int argc, char **argv, char **envp)
 	pipex->pid2 = fork();
 	if (pipex->pid2 == 0)
 		child2(pipex->pipefd, pipex, envp, pipex->fd[1]);
+	close_fds(pipex->pipefd);
 	waitpid(pipex->pid1, NULL , 0);
 	waitpid(pipex->pid2, &pipex->status , 0);
-	close_fds(pipex->pipefd);
 	close(pipex->fd[1]);
 	close(pipex->fd[0]);
 	exit_code = (pipex->status >> 8);
