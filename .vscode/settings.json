@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"pipex.h": "c",
+		"__stddef_max_align_t.h": "c"
+	}
+}
