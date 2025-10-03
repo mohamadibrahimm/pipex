@@ -6,7 +6,7 @@
 /*   By: mohamaib <mohamaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 00:27:53 by mohamaib          #+#    #+#             */
-/*   Updated: 2025/10/01 22:24:56 by mohamaib         ###   ########.fr       */
+/*   Updated: 2025/10/04 00:23:57 by mohamaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strdup(const char *str)
 	int		i;
 
 	i = 0;
-	dup = (char *)malloc(sizeof (char) * (ft_strlen(str) + 1));
+	dup = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
 	if (!dup)
 		return (0);
 	while (str[i])
@@ -64,8 +64,8 @@ char	*ft_strjoin(char const *s1, char const *s2, char const *s3)
 
 	if (!s1 && !s2)
 		return (NULL);
-	new = (char *)malloc(sizeof (char) * (ft_strlen(s1)
-				+ ft_strlen(s2) + ft_strlen(s3) + 1));
+	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)
+				+ ft_strlen(s3) + 1));
 	if (!new)
 		return (NULL);
 	i = 0;

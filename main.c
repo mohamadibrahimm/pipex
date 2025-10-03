@@ -6,7 +6,7 @@
 /*   By: mohamaib <mohamaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 19:40:20 by mohamaib          #+#    #+#             */
-/*   Updated: 2025/10/03 23:51:56 by mohamaib         ###   ########.fr       */
+/*   Updated: 2025/10/04 00:23:49 by mohamaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int	main(int argc, char **argv, char **envp)
 	if (pipex->pid2 == 0)
 		child2(pipex->pipefd, pipex, envp, pipex->fd[1]);
 	close_fds(pipex->pipefd);
-	waitpid(pipex->pid1, NULL , 0);
-	waitpid(pipex->pid2, &pipex->status , 0);
+	waitpid(pipex->pid1, NULL, 0);
+	waitpid(pipex->pid2, &pipex->status, 0);
 	close(pipex->fd[1]);
 	close(pipex->fd[0]);
 	exit_code = (pipex->status >> 8);

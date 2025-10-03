@@ -6,7 +6,7 @@
 /*   By: mohamaib <mohamaib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 19:40:23 by mohamaib          #+#    #+#             */
-/*   Updated: 2025/10/03 01:04:10 by mohamaib         ###   ########.fr       */
+/*   Updated: 2025/10/04 00:23:53 by mohamaib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	free_all(t_pipex *pipex)
 ssize_t	handle_error(int i)
 {
 	if (i == 0)
-		return (write
-			(1, "Usage : ./pipex infile \"cmd1\" \"cmd2\" outfile\n", 45));
+		return (write(1, "Usage : ./pipex infile \"cmd1\" \"cmd2\" outfile\n",
+				45));
 	else if (i == 1)
-		return (write
-			(1, "Error : non existing infile or denied access.\n", 46));
+		return (write(1, "Error : non existing infile or denied access.\n",
+				46));
 	else if (i == 3)
 		return (write(1, "Error : invalid first command\n", 30));
 	else if (i == 4)
@@ -62,7 +62,7 @@ char	*allocate(const char *s, int start, int len)
 	char	*ptr;
 
 	i = 0;
-	ptr = (char *)malloc(sizeof (char) * (len + 1));
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ptr)
 		return (NULL);
 	while (s[start] && i < len)
@@ -84,7 +84,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	big = (char **)malloc(sizeof (char *) * (countwords(s, c) + 1));
+	big = (char **)malloc(sizeof(char *) * (countwords(s, c) + 1));
 	if (!big)
 		return (NULL);
 	while (s[i])
